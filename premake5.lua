@@ -24,6 +24,7 @@ group "External dependecies"
 	project "imgui"
 		kind "StaticLib"
 		language "C++"
+        cppdialect "C++latest"
 
         includedirs {
             "../" .. imgui_dir,
@@ -48,6 +49,9 @@ group "External dependecies"
 
         location ("../_project")
         targetdir "../_bin/%{cfg.buildcfg}"
+
+        filter "action:vs*"
+            linkoptions { "-IGNORE:4006" }
 
         filter "system:windows"
 			systemversion "latest"
