@@ -18,6 +18,10 @@ function link_imgui()
 
     filter "system:windows"
         libdirs {"../_bin/%{cfg.buildcfg}"}
+
+    filter "system:linux"
+        links {"imgui"}
+        libdirs {"../_bin/%{cfg.buildcfg}"}
 end
 
 group "External dependecies"
